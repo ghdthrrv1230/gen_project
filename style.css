@@ -1,0 +1,60 @@
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.hidden { display: none; }
+
+/* 버튼 스타일 */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { background: #eef2ff; border-color: #4f46e5; }
+
+/* 근거 툴팁 (Hover 기능) */
+.evidence-area {
+    margin-top: 20px;
+    position: relative;
+    color: #666;
+}
+
+.tooltip-box {
+    display: none;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+    font-size: 0.85rem;
+    z-index: 10;
+}
+
+.evidence-area:hover .tooltip-box { display: block; }
