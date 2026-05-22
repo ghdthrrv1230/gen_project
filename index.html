@@ -3,33 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신조어 탐구 생활 - 우리 팀 프로젝트</title>
+    <title>세대의 언어를 번역하다</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>신조어 문해력 테스트</h1>
-        
-        <div id="quiz-screen">
-            <div class="progress">문제 <span id="current-idx">1</span> / <span id="total-idx">0</span></div>
-            <h2 id="question-text">문제가 여기에 나타납니다.</h2>
-            
-            <div id="options-container">
-                </div>
+    <header class="main-header">
+        <div class="logo" onclick="goHome()">🌐세대프로젝트</div>
+    </header>
 
-            <div class="evidence-area">
-                <span class="hover-hint">💡 힌트/근거 보기 (마우스를 올리세요)</span>
-                <div class="tooltip-box">
-                    <strong id="evidence-title">논문 제목</strong>
-                    <p id="evidence-desc">신조어 유래 및 통계 요약 내용</p>
+    <div class="container">
+        <div id="start-screen">
+            <div class="hero-section">
+                <span class="badge">Generation Sync Project</span>
+                <h1>세대의 언어를 번역하다</h1>
+                <p>가치관, 소통 방식, 문화의 차이를 분석하여<br>당신이 세상을 바라보는 소통 유형을 찾아보세요.</p>
+                <div class="char-preview">🤝 ⚖️ 🛡️ 💬</div>
+                
+                <div class="main-btn-group">
+                    <button class="main-start-btn" onclick="startTendencyTest()">🎭 나의 소통 성향 테스트 시작</button>
+                    <button class="main-start-btn secondary-btn" onclick="startKnowledgeQuiz()">🧠 세대 이해력 퀴즈 </button>
                 </div>
+                
+                <div class="sub-nav-container">
+                    <button class="sub-nav-btn" onclick="showTendencies()">🎭 4대 소통 성향 가이드</button>
+                    <button class="sub-nav-btn" onclick="showResearch()">📖 세대 차이 연구 데이터</button>
+                </div>
+            </div>
+
+            <div class="comment-section main-bottom-comment">
+                <h3>💬 참여자 한마디 (방명록)</h3>
+                <div class="comment-form">
+                    <input type="text" id="main-comment-name" placeholder="닉네임">
+                    <textarea id="main-comment-input" placeholder="우리 세대의 생각이나 웹사이트에 대한 의견을 자유롭게 남겨주세요!"></textarea>
+                    <button onclick="addComment('main')">등록</button>
+                </div>
+                <div id="main-comment-list"></div>
             </div>
         </div>
 
+        <div id="quiz-screen" class="hidden">
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div class="progress-text">문항 <span id="current-idx">1</span> / <span id="total-idx">0</span></div>
+            <h2 id="question-text">문제가 여기에 나타납니다.</h2>
+            <div id="options-container"></div>
+        </div>
+
+        <div id="explanation-screen" class="hidden">
+            <h2 id="explanation-title">결과</h2>
+            <div class="evidence-box">
+                <h3>💡 세대 맥락 들여다보기</h3>
+                <p id="explanation-desc"></p>
+                <p class="source-link">출처: <a id="source-url" href="#" target="_blank">학술 자료 확인</a></p>
+            </div>
+            <button id="next-btn" onclick="nextQuestion()">다음 문항으로 넘어가기</button>
+        </div>
+
         <div id="result-screen" class="hidden">
-            <h2>테스트 결과</h2>
-            <p id="score-text"></p>
-            <button onclick="location.reload()">다시 하기</button>
+            <div class="character-card" id="result-card">
+                <h3 id="user-type-tag">나의 핵심 소통 가치관은?</h3>
+                <h2 id="character-name">유형 이름</h2>
+                <div class="character-img" id="character-icon">✨</div>
+                <p id="character-desc"></p>
+            </div>
+
+            <div class="comment-section">
+                <h3>💬 테스트 결과 기록하기</h3>
+                <div class="comment-form">
+                    <input type="text" id="result-comment-name" placeholder="닉네임">
+                    <textarea id="result-comment-input" placeholder="당신의 결과나 가치관에 대한 생각을 동료들과 공유해보세요!"></textarea>
+                    <button onclick="addComment('result')">등록</button>
+                </div>
+                <div id="result-comment-list"></div>
+            </div>
+            <button class="retry-btn" onclick="goHome()">메인으로 돌아가기</button>
+        </div>
+
+        <div id="knowledge-result-screen" class="hidden">
+            <div class="character-card border-b">
+                <h3 id="user-type-tag">세대 이해력 퀴즈 결과</h3>
+                <h2 id="knowledge-score-text">0 / 0 정답</h2>
+                <div class="character-img">🧠</div>
+                <p id="knowledge-eval-text">평가 내용이 여기에 나타납니다.</p>
+            </div>
+            <button class="retry-btn" onclick="goHome()">메인으로 돌아가기</button>
+        </div>
+
+        <div id="tendency-screen" class="hidden">
+            <h2>🎭 4대 세대 소통 성향 가이드</h2>
+            <p class="screen-subtitle">회의를 통해 도출된 핵심 가치관 기반 4가지 유형입니다.</p>
+            <div class="info-card-list">
+                <div class="info-card border-a">
+                    <h3>🤝 책임·조화형</h3>
+                    <p>조직의 목표, 역할의 책임, 그리고 관계의 안정을 최우선으로 여깁니다. 개인보다 공동체의 헌신과 유대감을 중요하게 생각합니다.</p>
+                </div>
+                <div class="info-card border-b">
+                    <h3>⚖️ 공정·절차형</h3>
+                    <p>명확한 기준, 논리적인 설명, 납득 가능한 절차를 중시합니다. 투명한 정보 공개와 정당한 보상이 주어져야 움직입니다.</p>
+                </div>
+                <div class="info-card border-c">
+                    <h3>🛡️ 자율·경계형</h3>
+                    <p>개인의 시간과 선택권을 존중받길 원합니다. 독립성을 중시하며, 일과 삶의 경계(공사 구분)가 명확한 것을 선호합니다.</p>
+                </div>
+                <div class="info-card border-d">
+                    <h3>💬 관계·소통형</h3>
+                    <p>감정이 상하지 않는 상호 존중과 말하는 방식을 가장 중요하게 봅니다. 권위적인 태도보다는 솔직하고 부드러운 대화를 원합니다.</p>
+                </div>
+            </div>
+            <button class="back-btn" onclick="goHome()">메인 화면으로 돌아가기</button>
+        </div>
+
+        <div id="research-screen" class="hidden">
+            <h2>📖 세대 차이 구조적 연구 결과 요약</h2>
+            <p class="screen-subtitle">엠지이조 팀이 학술 논문 및 공공 보고서를 기반으로 종합한 분석 정보입니다.</p>
+            <div class="research-container">
+                <div class="research-block">
+                    <h4>📌 거시 경제 및 가치관 (통계청사회조사)</h4>
+                    <p>청년 세대의 비혼화 및 경제관 변화는 단순 개인주의라기보다 고용 불안, 주거비 상승 등 고도 자본주의의 구조적 모순이 누적된 결과물입니다.</p>
+                </div>
+                <div class="research-block">
+                    <h4>📌 직장 조직문화 갈등 (대한상공회의소)</h4>
+                    <p>야근 및 회식을 둘러싼 갈등의 정체는 기성세대의 '조직 헌신 모델'과 젊은 세대의 '합리적 거래·워라밸 모델'이 충돌하며 발생한 가치관 평행선입니다.</p>
+                </div>
+                <div class="research-block">
+                    <h4>📌 미디어 및 언어 격차 (한국언론진흥재단)</h4>
+                    <p>포털·TV 의존 세대와 유튜브 숏폼·알고리즘 의존 세대가 소비하는 정보 풀(Pool)이 분리되며 상식의 뼈대 자체가 달라지는 확증 편향이 가속화됩니다.</p>
+                </div>
+            </div>
+            <button class="back-btn" onclick="goHome()">메인 화면으로 돌아가기</button>
         </div>
     </div>
 
