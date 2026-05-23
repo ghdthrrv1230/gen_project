@@ -8,6 +8,9 @@ import {
   limitToLast
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+// ==========================================
+// 1. 파이어베이스 설정
+// ==========================================
 const firebaseConfig = {
   apiKey: "xxx",
   authDomain: "genproject-e1477.firebaseapp.com",
@@ -23,6 +26,12 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const commentsRef = query(ref(db, "comments"), limitToLast(100));
 
+
+// ==========================================
+// 2. 관리하기 쉬워진 데이터 저장소 (이곳만 수정하세요!)
+// ==========================================
+
+// [데이터 1] 성향 테스트 퀴즈 목록
 const tendencyData = [
   {
     question: "청년세대가 말한다. '지금은 열심히 해도 안정적으로 살 수 있을지 모르겠어요.' 나의 가장 가까운 반응은?",
@@ -98,6 +107,7 @@ const tendencyData = [
   }
 ];
 
+// [데이터 2] 세대 이해력 퀴즈 목록 (항목을 추가하려면 아래 양식 복사)
 const knowledgeData = [
   {
     question: "최근 2030 세대에서 '결혼은 반드시 해야 한다'는 응답 비율이 급감하고 있습니다. 통계청 조사에서 나타난 가장 큰 현실적 이유는?",
@@ -122,30 +132,88 @@ const knowledgeData = [
   }
 ];
 
+// [데이터 3] 성향 가이드 목록
+const tendencyGuideData = [
+  { 
+    title: "🤝 책임·조화형", 
+    desc: "조직의 목표, 역할의 책임, 그리고 관계의 안정을 최우선으로 여깁니다. 개인보다 공동체의 헌신과 유대감을 중요하게 생각합니다.",
+    borderClass: "border-a" 
+  },
+  { 
+    title: "⚖️ 공정·절차형", 
+    desc: "명확한 기준, 논리적인 설명, 납득 가능한 절차를 중시합니다. 투명한 정보 공개와 정당한 보상이 주어져야 움직입니다.",
+    borderClass: "border-b" 
+  },
+  { 
+    title: "🛡️ 자율·경계형", 
+    desc: "개인의 시간과 선택권을 존중받길 원합니다. 독립성을 중시하며, 일과 삶의 경계(공사 구분)가 명확한 것을 선호합니다.",
+    borderClass: "border-c" 
+  },
+  { 
+    title: "💬 관계·소통형", 
+    desc: "감정이 상하지 않는 상호 존중과 말하는 방식을 가장 중요하게 봅니다. 권위적인 태도보다는 솔직하고 부드러운 대화를 원합니다.",
+    borderClass: "border-d" 
+  }
+];
+
+// [데이터 4] 연구 결과 데이터 목록
+const researchData = [
+  {
+    title: "경제 불안과 비혼화",
+    desc: "청년 세대의 비혼화 및 경제관 변화는 단순 개인주의라기보다 고용 불안, 주거비 상승 등 고도 자본주의의 구조적 모순이 누적된 결과물입니다."
+  },
+  {
+    title: "직장 내 가치관 충돌",
+    desc: "야근 및 회식을 둘러싼 갈등의 정체는 기성세대의 '조직 헌신 모델'과 젊은 세대의 '합리적 거래·워라밸 모델'이 충돌하며 발생한 현상입니다."
+  },
+  {
+    title: "미디어 및 언어 격차",
+    desc: "포털·TV 의존 세대와 유튜브 숏폼·알고리즘 의존 세대가 소비하는 정보 풀(Pool)이 분리되며 상식의 뼈대 자체가 달라지는 확증 편향이 가속화됩니다."
+  }
+];
+
+
+// ==========================================
+// 3. 비즈니스 로직 및 화면 제어
+// ==========================================
+
 let currentMode = "";
 let currentIdx = 0;
 let scores = { A: 0, B: 0, C: 0, D: 0 };
 let knowledgeScore = 0;
 
-window.onload = function () {
-  subscribeComments();
-};
+// 페이지가 로드될 때 동적으로 연구 데이터와 성향 가이드를 화면에 그림
+function renderStaticContent() {
+  // 1. 성향 가이드 그리기
+  const guideContainer = document.getElementById("tendency-guide-container");
+  if(guideContainer) {
+    guideContainer.innerHTML = tendencyGuideData.map(item => `
+      <div class="info-card ${item.borderClass}">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </div>
+    `).join("");
+  }
 
+  // 2. 연구 데이터 그리기
+  const researchContainer = document.getElementById("research-data-container");
+  if(researchContainer) {
+    researchContainer.innerHTML = researchData.map(item => `
+      <div class="research-block">
+        <h4>${item.title}</h4>
+        <p>${item.desc}</p>
+      </div>
+    `).join("");
+  }
+}
+
+// 화면 전환 함수들
 function goHome() {
-  const screens = [
-    "quiz-screen",
-    "explanation-screen",
-    "result-screen",
-    "knowledge-result-screen",
-    "tendency-screen",
-    "research-screen"
-  ];
-
+  const screens = ["quiz-screen", "explanation-screen", "result-screen", "knowledge-result-screen", "tendency-screen", "research-screen"];
   screens.forEach((s) => {
     const el = document.getElementById(s);
     if (el) el.classList.add("hidden");
   });
-
   document.getElementById("start-screen").classList.remove("hidden");
 }
 
@@ -159,6 +227,7 @@ function showResearch() {
   document.getElementById("research-screen").classList.remove("hidden");
 }
 
+// 퀴즈 시작 함수
 function startTendencyTest() {
   currentMode = "tendency";
   currentIdx = 0;
@@ -177,6 +246,7 @@ function startKnowledgeQuiz() {
   showQuestion();
 }
 
+// 질문 표시
 function showQuestion() {
   const dataArray = currentMode === "tendency" ? tendencyData : knowledgeData;
   const q = dataArray[currentIdx];
@@ -186,14 +256,16 @@ function showQuestion() {
   document.getElementById("question-text").innerText = q.question;
 
   const progressPercent = ((currentIdx + 1) / dataArray.length) * 100;
-  document.getElementById("progress-bar").style.width = `${progressPercent}%`;
+  document.getElementById("progress-bar").style.width = progressPercent + "%";
 
   const container = document.getElementById("options-container");
   container.innerHTML = "";
 
-  q.options.forEach((opt) => {
-    const btn = document.createElement("button");
+  // 🎲 핵심 추가: 원본 데이터를 건드리지 않고, 화면에 뿌릴 때만 순서를 랜덤으로 섞음!
+  const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
 
+  shuffledOptions.forEach((opt) => {
+    const btn = document.createElement("button");
     if (currentMode === "tendency") {
       btn.innerText = opt.text;
       btn.onclick = () => {
@@ -204,7 +276,6 @@ function showQuestion() {
       btn.innerText = opt;
       btn.onclick = () => checkKnowledgeAnswer(opt);
     }
-
     container.appendChild(btn);
   });
 }
@@ -243,13 +314,14 @@ function nextQuestion() {
   }
 }
 
+// 결과 표시 로직
 function showTendencyResult() {
   document.getElementById("quiz-screen").classList.add("hidden");
-  document.getElementById("result-screen").classList.remove("hidden");
+  const resultScreen = document.getElementById("result-screen");
+  resultScreen.classList.remove("hidden");
 
   let maxScore = 0;
   let maxType = "A";
-
   for (const [type, score] of Object.entries(scores)) {
     if (score > maxScore) {
       maxScore = score;
@@ -257,34 +329,22 @@ function showTendencyResult() {
     }
   }
 
-  let name = "";
-  let icon = "";
-  let desc = "";
-  let color = "";
-
+  let name = "", icon = "", desc = "", color = "";
   switch (maxType) {
     case "A":
-      name = "책임·조화형";
-      icon = "🤝";
-      color = "#f59e0b";
+      name = "책임·조화형"; icon = "🤝"; color = "#f59e0b";
       desc = "조직, 역할, 관계의 안정을 최우선으로 생각합니다. 세대 차이에서 오는 갈등보다 공동체로서의 책임감과 유대감을 중요하게 여기는 든든한 조율자입니다.";
       break;
     case "B":
-      name = "공정·절차형";
-      icon = "⚖️";
-      color = "#3b82f6";
+      name = "공정·절차형"; icon = "⚖️"; color = "#3b82f6";
       desc = "명확한 기준, 논리적인 설명, 납득 가능한 절차를 중요하게 봅니다. 세대 갈등은 감정의 문제가 아니라, 불투명한 보상과 시스템의 문제라고 생각하는 합리적 분석가입니다.";
       break;
     case "C":
-      name = "자율·경계형";
-      icon = "🛡️";
-      color = "#10b981";
+      name = "자율·경계형"; icon = "🛡️"; color = "#10b981";
       desc = "개인 시간, 선택권, 독립성을 가장 중요하게 여깁니다. 일과 삶의 경계(공사 구분)를 명확히 지키고자 하는 주체적인 개인주의자입니다.";
       break;
     case "D":
-      name = "관계·소통형";
-      icon = "💬";
-      color = "#ec4899";
+      name = "관계·소통형"; icon = "💬"; color = "#ec4899";
       desc = "감정 상함 방지와 상호 존중, 부드러운 대화 방식을 중요하게 봅니다. 어떻게 전달하느냐가 세대 갈등 해결의 핵심이라 믿는 공감형 리더입니다.";
       break;
   }
@@ -292,6 +352,7 @@ function showTendencyResult() {
   const nameEl = document.getElementById("character-name");
   nameEl.innerText = name;
   nameEl.style.color = color;
+
   document.getElementById("character-icon").innerText = icon;
   document.getElementById("character-desc").innerText = desc;
   document.getElementById("result-card").style.borderColor = color;
@@ -300,50 +361,26 @@ function showTendencyResult() {
 function showKnowledgeResult() {
   document.getElementById("quiz-screen").classList.add("hidden");
   document.getElementById("knowledge-result-screen").classList.remove("hidden");
+
   document.getElementById("knowledge-score-text").innerText = `${knowledgeData.length}문제 중 ${knowledgeScore}문제 정답!`;
 
   let evalText = "";
-  if (knowledgeScore === knowledgeData.length) {
-    evalText = "대단합니다! 당신은 진정한 세대 이해 마스터입니다.";
-  } else if (knowledgeScore > 0) {
-    evalText = "좋습니다! 상대 세대에 대한 배경 지식을 훌륭하게 갖춰가고 계시네요.";
-  } else {
-    evalText = "아쉽네요! 메인 화면의 '연구 데이터 보기'를 통해 배경 맥락을 조금 더 파악해보세요.";
-  }
+  if (knowledgeScore === knowledgeData.length) evalText = "대단합니다! 당신은 진정한 세대 이해 마스터입니다.";
+  else if (knowledgeScore > 0) evalText = "좋습니다! 상대 세대에 대한 배경 지식을 훌륭하게 갖춰가고 계시네요.";
+  else evalText = "아쉽네요! 메인 화면의 '연구 데이터 보기'를 통해 배경 맥락을 조금 더 파악해보세요.";
 
   document.getElementById("knowledge-eval-text").innerText = evalText;
 }
 
-async function addComment(viewPrefix) {
-  const nameEl = document.getElementById(`${viewPrefix}-comment-name`);
-  const contentEl = document.getElementById(`${viewPrefix}-comment-input`);
+// ==========================================
+// 4. 파이어베이스 방명록 (댓글) 시스템
+// ==========================================
 
-  if (!nameEl || !contentEl) return;
+// 초기 데이터 로딩 실행
+renderStaticContent();
+loadComments();
 
-  const name = nameEl.value.trim();
-  const content = contentEl.value.trim();
-
-  if (!name || !content) {
-    alert("닉네임과 의견을 모두 입력해주세요.");
-    return;
-  }
-
-  try {
-    await push(ref(db, "comments"), {
-      name,
-      content,
-      createdAt: Date.now()
-    });
-
-    nameEl.value = "";
-    contentEl.value = "";
-  } catch (error) {
-    console.error(error);
-    alert("댓글 저장 중 오류가 발생했습니다.");
-  }
-}
-
-function subscribeComments() {
+function loadComments() {
   onValue(commentsRef, (snapshot) => {
     const data = snapshot.val() || {};
     const comments = Object.values(data).sort(
@@ -371,13 +408,39 @@ function renderComments(comments = []) {
   const mainList = document.getElementById("main-comment-list");
   const resultList = document.getElementById("result-comment-list");
 
-  if (mainList) {
-    mainList.innerHTML = htmlContent || "<p>아직 댓글이 없습니다.</p>";
+  if (mainList) mainList.innerHTML = htmlContent || "<p>아직 댓글이 없습니다.</p>";
+  if (resultList) resultList.innerHTML = htmlContent || "<p>아직 댓글이 없습니다.</p>";
+}
+
+function addComment(viewPrefix) {
+  const nameEl = document.getElementById(`${viewPrefix}-comment-name`);
+  const contentEl = document.getElementById(`${viewPrefix}-comment-input`);
+
+  if (!nameEl || !contentEl) return;
+
+  const name = nameEl.value.trim();
+  const content = contentEl.value.trim();
+
+  if (!name || !content) {
+    alert("이름과 내용을 모두 입력해주세요!");
+    return;
   }
 
-  if (resultList) {
-    resultList.innerHTML = htmlContent || "<p>아직 댓글이 없습니다.</p>";
-  }
+  const newComment = {
+    name: name,
+    content: content,
+    createdAt: Date.now()
+  };
+
+  push(ref(db, "comments"), newComment)
+    .then(() => {
+      nameEl.value = "";
+      contentEl.value = "";
+    })
+    .catch((error) => {
+      console.error("댓글 저장 실패: ", error);
+      alert("댓글 저장에 실패했습니다.");
+    });
 }
 
 function formatDate(timestamp) {
@@ -391,9 +454,10 @@ function escapeHtml(str = "") {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
+    .replaceAll("'", "&#039;");
 }
 
+// 모듈 환경에서 전역으로 함수 노출 (HTML onclick 동작을 위해 필수)
 window.goHome = goHome;
 window.showTendencies = showTendencies;
 window.showResearch = showResearch;
