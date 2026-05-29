@@ -104,29 +104,38 @@ const knowledgeData = [
     options: ["개인의 자유 지향", "결혼 자금 부족(경제적 이유)", "가사 노동에 대한 부담"],
     answer: "결혼 자금 부족(경제적 이유)",
     evidence: "통계청 조사에 따르면 주거비 상승 등 경제적 불안정이 결혼 기피의 가장 큰 원인으로 꼽히고 있습니다.",
-    link: "https://kostat.go.kr/"
+    // ★ 여러 개의 참고 자료를 배열({}) 형태로 쉽게 관리할 수 있습니다. 추가/삭제가 매우 간편해집니다.
+    links: [
+      { title: "통계청: 2022년 사회조사 결과", url: "https://kostat.go.kr/" },
+      { title: "KOSIS 국가통계포털 데이터", url: "https://kosis.kr/" }
+    ]
   },
   {
     question: "젊은 세대가 음성 통화보다 카카오톡 등 텍스트를 선호하는 '콜포비아'의 주된 심리적 배경은?",
     options: ["통화료에 대한 금전적 부담", "즉각적 응답에 대한 압박감", "단순히 말하는 것이 귀찮아서"],
     answer: "즉각적 응답에 대한 압박감",
     evidence: "비대면 소통에 익숙해진 세대는 생각할 시간이 없는 실시간 음성 피드백을 사회적 스트레스로 인식하는 경향이 큽니다.",
-    link: "https://www.kisdi.re.kr/"
+    links: [
+      { title: "정보통신정책연구원(KISDI) 분석 보고서", url: "https://www.kisdi.re.kr/" }
+    ]
   },
   {
     question: "기성세대가 여전히 TV 뉴스나 포털을 신뢰하는 반면, Z세대가 새로운 트렌드를 탐색할 때 가장 많이 의존하는 플랫폼 형태는?",
     options: ["인터넷 카페 및 커뮤니티", "종이 신문 및 잡지", "유튜브 및 숏폼(알고리즘) 영상"],
     answer: "유튜브 및 숏폼(알고리즘) 영상",
     evidence: "디지털 네이티브 세대는 텍스트보다 영상과 해시태그 기반의 직관적인 자료를 통해 경험적 맥락을 탐색하는 것을 선호합니다.",
-    link: "https://www.kpf.or.kr/"
+    links: [
+      { title: "한국언론진흥재단 미디어 이용 조사", url: "https://www.kpf.or.kr/" },
+      { title: "유튜브(YouTube) 트렌드 리포트", url: "https://www.youtube.com/trends/" }
+    ]
   }
 ];
 
 const tendencyGuideData = [
-  { title: "🤝 책임·조화형", desc: "조직의 목표, 역할의 책임, 그리고 관계의 안정을 최우선으로 여깁니다. 개인보다 공동체의 헌신과 유대감을 중요하게 생각합니다." },
-  { title: "⚖️ 공정·절차형", desc: "명확한 기준, 논리적인 설명, 납득 가능한 절차를 중시합니다. 투명한 정보 공개와 정당한 보상이 주어져야 움직입니다." },
-  { title: "🛡️ 자율·경계형", desc: "개인의 시간과 선택권을 존중받길 원합니다. 독립성을 중시하며, 일과 삶의 경계(공사 구분)가 명확한 것을 선호합니다." },
-  { title: "💬 관계·소통형", desc: "감정이 상하지 않는 상호 존중과 말하는 방식을 가장 중요하게 봅니다. 권위적인 태도보다는 솔직하고 부드러운 대화를 원합니다." }
+  { title: `<span class="material-symbols-rounded icon-align" style="color:#f59e0b">handshake</span> 책임·조화형`, desc: "조직의 목표, 역할의 책임, 그리고 관계의 안정을 최우선으로 여깁니다. 개인보다 공동체의 헌신과 유대감을 중요하게 생각합니다." },
+  { title: `<span class="material-symbols-rounded icon-align" style="color:#3b82f6">balance</span> 공정·절차형`, desc: "명확한 기준, 논리적인 설명, 납득 가능한 절차를 중시합니다. 투명한 정보 공개와 정당한 보상이 주어져야 움직입니다." },
+  { title: `<span class="material-symbols-rounded icon-align" style="color:#10b981">shield</span> 자율·경계형`, desc: "개인의 시간과 선택권을 존중받길 원합니다. 독립성을 중시하며, 일과 삶의 경계(공사 구분)가 명확한 것을 선호합니다." },
+  { title: `<span class="material-symbols-rounded icon-align" style="color:#ec4899">chat_bubble</span> 관계·소통형`, desc: "감정이 상하지 않는 상호 존중과 말하는 방식을 가장 중요하게 봅니다. 권위적인 태도보다는 솔직하고 부드러운 대화를 원합니다." }
 ];
 
 const researchData = [
@@ -145,7 +154,7 @@ function renderStaticContent() {
   if(guideContainer) {
     guideContainer.innerHTML = tendencyGuideData.map(item => `
       <div class="info-card">
-        <h3>${item.title}</h3>
+        <h3 class="icon-header">${item.title}</h3>
         <p>${item.desc}</p>
       </div>
     `).join("");
@@ -155,7 +164,7 @@ function renderStaticContent() {
   if(researchContainer) {
     researchContainer.innerHTML = researchData.map(item => `
       <div class="research-block">
-        <h4>${item.title}</h4>
+        <h4 class="icon-header">${item.title}</h4>
         <p>${item.desc}</p>
       </div>
     `).join("");
@@ -238,13 +247,32 @@ function checkKnowledgeAnswer(selectedOpt) {
   if (isCorrect) knowledgeScore++;
 
   const titleEl = document.getElementById("explanation-title");
-  titleEl.innerText = isCorrect ? "⭕ 정답입니다!" : "❌ 아쉽네요!";
-  titleEl.style.color = isCorrect ? "#8b5cf6" : "#ef4444";
+  if (isCorrect) {
+    titleEl.innerHTML = `<span class="material-symbols-rounded status-icon correct">check_circle</span> 정답입니다!`;
+  } else {
+    titleEl.innerHTML = `<span class="material-symbols-rounded status-icon incorrect">cancel</span> 아쉽네요!`;
+  }
 
   document.getElementById("explanation-desc").innerText = q.evidence;
 
-  const sourceLink = document.getElementById("source-url");
-  if (sourceLink) sourceLink.href = q.link;
+  // 동적 Hover 툴팁(박스) 안에 다중 링크 생성 로직
+  const tooltipBox = document.getElementById("source-tooltip");
+  const sourceContainer = document.querySelector(".source-link-container");
+  
+  if (tooltipBox && sourceContainer) {
+    if (q.links && q.links.length > 0) {
+      // 링크가 존재하는 문항이면 Hover 박스를 만들고 컨테이너를 보여줍니다.
+      tooltipBox.innerHTML = q.links.map(link => `
+        <a href="${link.url}" target="_blank" rel="noopener noreferrer">
+          ${link.title} <span class="material-symbols-rounded link-icon">open_in_new</span>
+        </a>
+      `).join("");
+      sourceContainer.style.display = "inline-block";
+    } else {
+      // 링크가 설정되어 있지 않다면 컨테이너 자체를 가립니다.
+      sourceContainer.style.display = "none";
+    }
+  }
 
   document.getElementById("quiz-screen").classList.add("hidden");
   document.getElementById("explanation-screen").classList.remove("hidden");
@@ -283,19 +311,27 @@ function showTendencyResult() {
   let name = "", icon = "", desc = "", color = "";
   switch (maxType) {
     case "A":
-      name = "책임·조화형"; icon = "🤝"; color = "#f59e0b";
+      name = "책임·조화형"; 
+      icon = `<span class="material-symbols-rounded">handshake</span>`; 
+      color = "#f59e0b";
       desc = "조직, 역할, 관계의 안정을 최우선으로 생각합니다. 세대 차이에서 오는 갈등보다 공동체로서의 책임감과 유대감을 중요하게 여기는 든든한 조율자입니다.";
       break;
     case "B":
-      name = "공정·절차형"; icon = "⚖️"; color = "#3b82f6";
+      name = "공정·절차형"; 
+      icon = `<span class="material-symbols-rounded">balance</span>`; 
+      color = "#3b82f6";
       desc = "명확한 기준, 논리적인 설명, 납득 가능한 절차를 중요하게 봅니다. 세대 갈등은 감정의 문제가 아니라, 불투명한 보상과 시스템의 문제라고 생각하는 합리적 분석가입니다.";
       break;
     case "C":
-      name = "자율·경계형"; icon = "🛡️"; color = "#10b981";
+      name = "자율·경계형"; 
+      icon = `<span class="material-symbols-rounded">shield</span>`; 
+      color = "#10b981";
       desc = "개인 시간, 선택권, 독립성을 가장 중요하게 여깁니다. 일과 삶의 경계(공사 구분)를 명확히 지키고자 하는 주체적인 개인주의자입니다.";
       break;
     case "D":
-      name = "관계·소통형"; icon = "💬"; color = "#ec4899";
+      name = "관계·소통형"; 
+      icon = `<span class="material-symbols-rounded">chat_bubble</span>`; 
+      color = "#ec4899";
       desc = "감정 상함 방지와 상호 존중, 부드러운 대화 방식을 중요하게 봅니다. 어떻게 전달하느냐가 세대 갈등 해결의 핵심이라 믿는 공감형 리더입니다.";
       break;
   }
@@ -304,7 +340,10 @@ function showTendencyResult() {
   nameEl.innerText = name;
   nameEl.style.color = color;
 
-  document.getElementById("character-icon").innerText = icon;
+  const iconEl = document.getElementById("character-icon");
+  iconEl.innerHTML = icon;
+  iconEl.style.color = color;
+  
   document.getElementById("character-desc").innerText = desc;
 }
 
