@@ -3,109 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>세대의 언어를 번역하다</title>
+  <title>세대 소통 유형 테스트</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="main-header">
-    <div class="logo" onclick="goHome()">💬 세대교류프로젝트</div>
+    <button class="logo-btn" onclick="goHome()">💬 세대교류프로젝트</button>
   </header>
 
-  <div class="container">
-    <div id="start-screen">
+  <main class="container">
+    <section id="start-screen">
       <div class="hero-section">
-        <span class="badge">Generation Sync Project</span>
-        <h1>세대의 언어를 번역하다</h1>
-        <p>
-          가치관, 소통 방식, 문화의 차이를 분석하여<br />
-          당신이 세상을 바라보는 소통 유형을 찾아보세요.
+        <span class="badge">Generation Sync</span>
+        <h1>나의 세대 소통<br>유형 테스트</h1>
+        <p class="subtitle">
+          나는 어떤 방식으로 세상을 바라볼까?<br>
+          상황별 반응으로 알아보는 나의 소통 가치관
         </p>
-        <div class="char-preview">🤝 ⚖️ 🛡️ 💬</div>
+        <div class="char-preview">
+          <div class="emoji-bubble">🤝</div>
+          <div class="emoji-bubble">⚖️</div>
+          <div class="emoji-bubble">🛡️</div>
+          <div class="emoji-bubble">💬</div>
+        </div>
 
         <div class="main-btn-group">
-          <button class="main-start-btn" onclick="startTendencyTest()">소통 유형 테스트 시작</button>
-          <button class="main-start-btn secondary-btn" onclick="startKnowledgeQuiz()">세대 이해력 퀴즈 시작</button>
+          <button class="action-btn primary-btn" onclick="startTendencyTest()">테스트 시작하기</button>
+          <button class="action-btn secondary-btn" onclick="startKnowledgeQuiz()">세대 이해력 퀴즈</button>
         </div>
 
-        <div class="sub-nav-container">
-          <button class="sub-nav-btn" onclick="showTendencies()">4가지 유형 보기</button>
-          <button class="sub-nav-btn" onclick="showResearch()">연구 데이터 보기</button>
-        </div>
+        <nav class="sub-nav-container">
+          <button class="sub-nav-btn" onclick="showTendencies()">모든 유형 보기</button>
+          <button class="sub-nav-btn" onclick="showResearch()">연구 배경</button>
+        </nav>
       </div>
 
-      <div class="comment-section main-bottom-comment">
-        <h3>💬 참여자 한마디 (방명록)</h3>
+      <div class="comment-section">
+        <h3>방명록 ✍️</h3>
         <div class="comment-form">
-          <input type="text" id="main-comment-name" placeholder="닉네임">
-          <textarea id="main-comment-input" placeholder="우리 세대의 생각이나 웹사이트에 대한 의견을 자유롭게 남겨주세요!"></textarea>
-          <button onclick="addComment('main')">등록</button>
+          <input type="text" id="main-comment-name" placeholder="닉네임" aria-label="닉네임">
+          <textarea id="main-comment-input" placeholder="웹사이트에 대한 의견이나 인사를 남겨주세요!" aria-label="댓글 내용"></textarea>
+          <button onclick="addComment('main')">남기기</button>
         </div>
         <div id="main-comment-list"></div>
       </div>
-    </div>
+    </section>
 
-    <div id="quiz-screen" class="hidden">
-      <div class="progress-container">
-        <div id="progress-bar"></div>
+    <section id="quiz-screen" class="hidden">
+      <div class="progress-wrapper">
+        <div class="progress-text"><span id="current-idx">1</span> / <span id="total-idx">0</span></div>
+        <div class="progress-container">
+          <div id="progress-bar"></div>
+        </div>
       </div>
-      <div class="progress-text">문항 <span id="current-idx">1</span> / <span id="total-idx">0</span></div>
       <h2 id="question-text">문제가 여기에 나타납니다.</h2>
-      <div id="options-container"></div>
-    </div>
+      <div id="options-container" class="options-group"></div>
+    </section>
 
-    <div id="explanation-screen" class="hidden">
+    <section id="explanation-screen" class="hidden">
       <h2 id="explanation-title">결과</h2>
       <div class="evidence-box">
-        <h3>💡 세대 맥락 들여다보기</h3>
+        <h3>💡 팩트 체크</h3>
         <p id="explanation-desc"></p>
-        <p class="source-link">출처: <a id="source-url" href="#" target="_blank">학술 자료 확인</a></p>
+        <p class="source-link"><a id="source-url" href="#" target="_blank" rel="noopener noreferrer">참고 자료 보기 🔗</a></p>
       </div>
-      <button id="next-btn" onclick="nextQuestion()">다음 문항으로 넘어가기</button>
-    </div>
+      <button class="action-btn primary-btn mt-4" id="next-btn" onclick="nextQuestion()">다음으로</button>
+    </section>
 
-    <div id="result-screen" class="hidden">
+    <section id="result-screen" class="hidden">
       <div class="character-card" id="result-card">
         <h3 id="user-type-tag">나의 핵심 소통 가치관은?</h3>
-        <h2 id="character-name">유형 이름</h2>
         <div class="character-img" id="character-icon">✨</div>
+        <h2 id="character-name">유형 이름</h2>
+        <div class="divider"></div>
         <p id="character-desc"></p>
       </div>
+      
+      <div class="share-actions">
+        <button class="action-btn secondary-btn" onclick="goHome()">처음으로</button>
+      </div>
+
       <div class="comment-section">
-        <h3>💬 테스트 결과 기록하기</h3>
+        <h3>결과 공유하기 💬</h3>
         <div class="comment-form">
-          <input type="text" id="result-comment-name" placeholder="닉네임">
-          <textarea id="result-comment-input" placeholder="당신의 결과나 가치관에 대한 생각을 동료들과 공유해보세요!"></textarea>
-          <button onclick="addComment('result')">등록</button>
+          <input type="text" id="result-comment-name" placeholder="닉네임" aria-label="닉네임">
+          <textarea id="result-comment-input" placeholder="당신의 결과나 가치관에 대한 생각을 동료들과 공유해보세요!" aria-label="결과 공유"></textarea>
+          <button onclick="addComment('result')">남기기</button>
         </div>
         <div id="result-comment-list"></div>
       </div>
-      <button class="retry-btn" onclick="goHome()">메인으로 돌아가기</button>
-    </div>
+    </section>
 
-    <div id="knowledge-result-screen" class="hidden">
-      <div class="character-card border-b">
-        <h3 id="user-type-tag">세대 이해력 퀴즈 결과</h3>
-        <h2 id="knowledge-score-text">0 / 0 정답</h2>
+    <section id="knowledge-result-screen" class="hidden">
+      <div class="character-card knowledge-card">
+        <h3 id="knowledge-type-tag">세대 이해력 퀴즈 결과</h3>
         <div class="character-img">🧠</div>
+        <h2 id="knowledge-score-text">0 / 0 정답</h2>
+        <div class="divider"></div>
         <p id="knowledge-eval-text">평가 내용이 여기에 나타납니다.</p>
       </div>
-      <button class="retry-btn" onclick="goHome()">메인으로 돌아가기</button>
-    </div>
+      <button class="action-btn primary-btn mt-4" onclick="goHome()">메인으로 돌아가기</button>
+    </section>
 
-    <div id="tendency-screen" class="hidden">
-      <h2>🎭 4대 세대 소통 성향 가이드</h2>
-      <p class="screen-subtitle">회의를 통해 도출된 핵심 가치관 기반 4가지 유형입니다.</p>
+    <section id="tendency-screen" class="hidden">
+      <div class="header-title">
+        <h2>🎭 4대 세대 소통 성향</h2>
+        <p>어떤 유형들이 있는지 확인해보세요.</p>
+      </div>
       <div id="tendency-guide-container" class="info-card-list"></div>
-      <button class="back-btn" onclick="goHome()">메인으로 돌아가기</button>
-    </div>
+      <button class="action-btn secondary-btn mt-4" onclick="goHome()">메인으로 돌아가기</button>
+    </section>
 
-    <div id="research-screen" class="hidden">
-      <h2>엠지이조 팀이 학술 논문 및 공공 보고서를 기반으로 종합한 분석 정보입니다.</h2>
-      <p class="screen-subtitle">세대 갈등과 인식 차이의 배경을 간단히 정리했습니다.</p>
+    <section id="research-screen" class="hidden">
+      <div class="header-title">
+        <h2>📊 연구 배경 및 데이터</h2>
+        <p>세대 갈등과 인식 차이의 배경을 분석했습니다.</p>
+      </div>
       <div id="research-data-container" class="research-container"></div>
-      <button class="back-btn" onclick="goHome()">메인으로 돌아가기</button>
-    </div>
-  </div>
+      <button class="action-btn secondary-btn mt-4" onclick="goHome()">메인으로 돌아가기</button>
+    </section>
+  </main>
 
   <script type="module" src="script.js"></script>
 </body>
