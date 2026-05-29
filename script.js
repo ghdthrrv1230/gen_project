@@ -1,3 +1,4 @@
+// 1. 순수 JS 환경에 맞는 파이어베이스 CDN 링크 사용
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"; 
 import {
   getDatabase,
@@ -5,11 +6,16 @@ import {
   push,
   onValue,
   query,
-  limitToLast
+  limitToLast,
+  update,     // ★ 통계 저장을 위해 추가
+  increment   // ★ 통계 +1 증가를 위해 추가
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+// 방문자 통계가 필요하다면 아래 주석을 해제하세요.
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 
+// 2. 발급받은 Firebase 설정 적용
 const firebaseConfig = {
-  apiKey: "xxx",
+  apiKey: "AIzaSyCAfvwUeO0euBlDh2sI8mv5oZTUrkfLhJA", // ⚠️ 콘솔에서 복사해서 반드시 채워주세요!
   authDomain: "genproject-e1477.firebaseapp.com",
   databaseURL: "https://genproject-e1477-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "genproject-e1477",
@@ -104,7 +110,6 @@ const knowledgeData = [
     options: ["개인의 자유 지향", "결혼 자금 부족(경제적 이유)", "가사 노동에 대한 부담"],
     answer: "결혼 자금 부족(경제적 이유)",
     evidence: "통계청 조사에 따르면 주거비 상승 등 경제적 불안정이 결혼 기피의 가장 큰 원인으로 꼽히고 있습니다.",
-    // ★ 여러 개의 참고 자료를 배열({}) 형태로 쉽게 관리할 수 있습니다. 추가/삭제가 매우 간편해집니다.
     links: [
       { title: "통계청: 2022년 사회조사 결과", url: "https://kostat.go.kr/" },
       { title: "KOSIS 국가통계포털 데이터", url: "https://kosis.kr/" }
@@ -194,6 +199,10 @@ function startTendencyTest() {
   currentMode = "tendency";
   currentIdx = 0;
   scores = { A: 0, B: 0, C: 0, D: 0 };
+  
+  // 새 테스트를 시작하면 통계 중복 저장 방지용 세션을 초기화합니다.
+  sessionStorage.removeItem("resultSaved"); 
+
   document.getElementById("start-screen").classList.add("hidden");
   document.getElementById("quiz-screen").classList.remove("hidden");
   showQuestion();
@@ -255,13 +264,11 @@ function checkKnowledgeAnswer(selectedOpt) {
 
   document.getElementById("explanation-desc").innerText = q.evidence;
 
-  // 동적 Hover 툴팁(박스) 안에 다중 링크 생성 로직
   const tooltipBox = document.getElementById("source-tooltip");
   const sourceContainer = document.querySelector(".source-link-container");
   
   if (tooltipBox && sourceContainer) {
     if (q.links && q.links.length > 0) {
-      // 링크가 존재하는 문항이면 Hover 박스를 만들고 컨테이너를 보여줍니다.
       tooltipBox.innerHTML = q.links.map(link => `
         <a href="${link.url}" target="_blank" rel="noopener noreferrer">
           ${link.title} <span class="material-symbols-rounded link-icon">open_in_new</span>
@@ -269,7 +276,6 @@ function checkKnowledgeAnswer(selectedOpt) {
       `).join("");
       sourceContainer.style.display = "inline-block";
     } else {
-      // 링크가 설정되어 있지 않다면 컨테이너 자체를 가립니다.
       sourceContainer.style.display = "none";
     }
   }
@@ -345,6 +351,15 @@ function showTendencyResult() {
   iconEl.style.color = color;
   
   document.getElementById("character-desc").innerText = desc;
+
+  // ★ 관리자 확인용 결과 통계 백그라운드 전송 로직 (중복 카운트 방지 포함)
+  if (!sessionStorage.getItem("resultSaved")) {
+    update(ref(db), {
+      [`admin_stats/tendency/${maxType}`]: increment(1)
+    }).then(() => {
+      sessionStorage.setItem("resultSaved", "true");
+    }).catch(err => console.error("통계 저장 실패: ", err));
+  }
 }
 
 function showKnowledgeResult() {
