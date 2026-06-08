@@ -662,11 +662,17 @@ function renderTendencyGuide() {
 
   el.innerHTML=`
     <div class="type-carousel-wrapper">
-      <button class="type-nav-btn type-nav-prev" aria-label="이전 유형">‹</button>
       <div class="type-carousel" id="type-carousel">${cards}</div>
-      <button class="type-nav-btn type-nav-next" aria-label="다음 유형">›</button>
     </div>
-    <div class="type-dots" id="type-dots">${dots}</div>
+    <div class="type-nav-row">
+      <button class="type-nav-btn type-nav-prev" aria-label="이전 유형">
+        <span class="material-symbols-rounded">chevron_left</span>
+      </button>
+      <div class="type-dots" id="type-dots">${dots}</div>
+      <button class="type-nav-btn type-nav-next" aria-label="다음 유형">
+        <span class="material-symbols-rounded">chevron_right</span>
+      </button>
+    </div>
   `;
 
   // 인터랙션
@@ -674,6 +680,8 @@ function renderTendencyGuide() {
   const dotsEl=document.getElementById("type-dots");
   const prevBtn=el.querySelector(".type-nav-prev");
   const nextBtn=el.querySelector(".type-nav-next");
+  // 초기 상태
+  if(prevBtn) prevBtn.disabled = true;
 
   function getCurrentIdx(){
     const w=carousel.clientWidth;
@@ -686,6 +694,8 @@ function renderTendencyGuide() {
   function updateDots(){
     const idx=getCurrentIdx();
     [...dotsEl.children].forEach((d,i)=>d.classList.toggle("active", i===idx));
+    if(prevBtn) prevBtn.disabled = idx === 0;
+    if(nextBtn) nextBtn.disabled = idx === 3;
   }
 
   carousel.addEventListener("scroll", ()=>{
