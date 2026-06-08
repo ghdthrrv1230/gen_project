@@ -910,7 +910,7 @@ main.container:has(#tendency-screen:not(.hidden)) {
     flex-direction: row;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -1079,11 +1079,12 @@ main.container:has(#tendency-screen:not(.hidden)) {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding-top: 4px;
   /* 점프 스크롤 시 카드가 sticky nav 뒤로 가는 것 방지 */
-  scroll-margin-top: 130px;
+  scroll-margin-top: 150px;
 }
 .research-card {
-  scroll-margin-top: 130px;
+  scroll-margin-top: 150px;
 }
 
 /* 모바일에서 nav 텍스트 약간 작게 + 카드 패딩 줄이기 */
@@ -1113,5 +1114,204 @@ main.container:has(#tendency-screen:not(.hidden)) {
   }
   #research-screen .research-stat-num {
     font-size: 1.5rem;
+  }
+}
+
+/* ════════════════════════════════════════════
+   모바일 풀폭 — 모든 요소를 화면에 가깝게
+════════════════════════════════════════════ */
+@media (max-width: 720px) {
+  /* body 좌우 패딩 최소화 */
+  body {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  /* 컨테이너 내부 패딩도 줄여서 카드가 화면에 더 닿게 */
+  .container {
+    padding: 1.5rem 0.6rem;
+  }
+
+  /* 시작 화면 퀴즈 카드 */
+  .quiz-card { padding: 22px 16px; }
+
+  /* 결과 카드 패딩 조정 */
+  .character-card { padding: 2.4rem 1rem 1.6rem; }
+
+  /* 연구 배경 카드도 좌우 여유 있게 */
+  #research-screen .research-card {
+    padding: 22px 16px;
+  }
+
+  /* 방명록 섹션 */
+  .comment-section { padding: 16px 14px; }
+
+  /* 옵션 버튼(선택지) 풀폭 가깝게 */
+  .options-group button { padding: 16px 16px; }
+
+  /* h1·h2 폰트 약간 키워서 시원하게 */
+  h1 { font-size: 2.1rem; letter-spacing: -1px; }
+  h2 { font-size: 1.25rem; }
+
+  /* 점프 메뉴 좌우 여백 재조정 (body padding 변경 반영) */
+  .research-jump-nav {
+    margin-left: -6px;
+    margin-right: -6px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* 더 작은 화면(좁은 폰)에서도 동일하게 적용 */
+@media (max-width: 400px) {
+  body {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .container {
+    padding: 1.4rem 0.5rem;
+  }
+}
+/* ════════════════════════════════════════════
+   시작 페이지 — 프로젝트 소개 메시지
+════════════════════════════════════════════ */
+.intro-message {
+  margin: 24px 0 28px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, #faf5ff 0%, #f0f9ff 100%);
+  border: 1px solid var(--primary-dim);
+  border-radius: var(--radius-lg);
+  text-align: left;
+}
+.intro-message p {
+  margin: 0 0 12px;
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: var(--text-sub);
+  word-break: keep-all;
+}
+.intro-message p:last-child { margin-bottom: 0; }
+.intro-message strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ════════════════════════════════════════════
+   유형 상세 — 이론적 배경 박스
+════════════════════════════════════════════ */
+.type-theory {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: -10px 0 22px;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--type-color) 5%, var(--surface));
+  border-left: 3px solid var(--type-color);
+  border-radius: 8px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-sub);
+  word-break: keep-all;
+}
+.type-theory > span:first-child {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@media (max-width: 720px) {
+  .intro-message {
+    padding: 18px 16px;
+    margin: 18px 0 22px;
+  }
+  .intro-message p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .type-theory {
+    font-size: 0.82rem;
+    padding: 10px 12px;
+  }
+}
+
+/* ════════════════════════════════════════════
+   결과창 보강 — 모토 · 강점 미리보기 · 카테고리 강점
+════════════════════════════════════════════ */
+.result-extra {
+  margin: 20px 0 12px;
+  text-align: left;
+}
+.result-extra:empty {
+  display: none;
+}
+
+.result-motto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  background: rgba(124, 58, 237, 0.06);
+  border-left: 3px solid var(--primary, #7c3aed);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.result-motto .material-symbols-rounded {
+  font-size: 1.05rem;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.result-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+.result-preview-item {
+  padding: 12px 14px;
+  background: var(--surface, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.result-preview-item strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+  color: var(--text-main, #1e293b);
+}
+.result-preview-item p {
+  margin: 0;
+  color: var(--text-sub, #64748b);
+  font-size: 0.82rem;
+}
+
+.action-btn.ghost-btn {
+  background: transparent;
+  color: var(--text-sub, #64748b);
+  border: 1px solid var(--border, #e2e8f0);
+}
+.action-btn.ghost-btn:hover {
+  background: var(--surface, #f8fafc);
+  color: var(--text-main, #1e293b);
+}
+
+@media (max-width: 720px) {
+  .result-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .result-motto {
+    font-size: 0.88rem;
+    padding: 10px 14px;
+  }
+  .result-preview-item {
+    padding: 10px 12px;
+    font-size: 0.82rem;
   }
 }

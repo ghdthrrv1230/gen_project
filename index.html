@@ -102,10 +102,15 @@
         <h2 id="character-name">유형 이름</h2>
         <div class="divider"></div>
         <p id="character-desc">설명이 나타납니다.</p>
+        <div id="tendency-result-extra" class="result-extra"></div>
         <div class="chart-container mt-4"><canvas id="tendencyChart"></canvas></div>
       </div>
-      <button class="action-btn secondary-btn mt-4" onclick="startTendencyTest()">다시 하기</button>
-      <button class="action-btn primary-btn mt-2" onclick="goHome()">메인으로 돌아가기</button>
+      <button class="action-btn primary-btn mt-4" onclick="goToTypeDetail()">
+        <span class="material-symbols-rounded" style="vertical-align:middle;font-size:1.1rem;">arrow_forward</span>
+        내 유형 자세히 보기
+      </button>
+      <button class="action-btn secondary-btn mt-2" onclick="startTendencyTest()">다시 하기</button>
+      <button class="action-btn ghost-btn mt-2" onclick="goHome()">메인으로 돌아가기</button>
     </section>
 
     <!-- ══ 지식 퀴즈 결과 ══ -->
@@ -116,10 +121,15 @@
         <h2 id="knowledge-score-text">0 / 0 정답</h2>
         <div class="divider"></div>
         <p id="knowledge-eval-text">평가 내용이 여기에 나타납니다.</p>
+        <div id="knowledge-result-extra" class="result-extra"></div>
         <div class="chart-container mt-4"><canvas id="knowledgeChart"></canvas></div>
       </div>
-      <button class="action-btn secondary-btn mt-4" onclick="startKnowledgeQuiz()">다시 하기</button>
-      <button class="action-btn primary-btn mt-2" onclick="goHome()">메인으로 돌아가기</button>
+      <button class="action-btn primary-btn mt-4" onclick="goToResearch()">
+        <span class="material-symbols-rounded" style="vertical-align:middle;font-size:1.1rem;">arrow_forward</span>
+        관련 연구 배경 보기
+      </button>
+      <button class="action-btn secondary-btn mt-2" onclick="startKnowledgeQuiz()">다시 하기</button>
+      <button class="action-btn ghost-btn mt-2" onclick="goHome()">메인으로 돌아가기</button>
     </section>
 
     <!-- ══ 유형 안내 ══ -->
