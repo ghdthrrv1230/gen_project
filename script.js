@@ -1,4 +1,4 @@
-// ═══════════════════════════════════════════════════════════ 
+// ═══════════════════════════════════════════════════════════
 //  세대교류프로젝트 — 완전 하드코딩 버전
 //  Firebase: 방명록 + 통계 저장만 사용
 // ═══════════════════════════════════════════════════════════
@@ -252,7 +252,7 @@ const KNOWLEDGE_QUIZZES = [
     ],
     answer: "MZ세대는 직장을 가볍게 여긴다기보다, 자신의 시간이 성장·직무역량·공정한 평가로 연결되는지 빨리 확인하려는 경향이 있다.",
     evidence: "기성세대에게 직장은 “힘들어도 버티면서 배우는 곳”이라는 의미가 강했다. 예전에는 회사에 오래 다니는 것 자체가 성실함과 책임감의 표시로 여겨졌고, 초반의 어려움은 누구나 견뎌야 하는 과정으로 받아들여졌다. 그래서 입사한 지 얼마 되지 않은 MZ 직원이 이직을 고민하면 “아직 제대로 해보지도 않았다”, “조금 힘들다고 바로 포기한다”, “끈기가 부족하다”는 식으로 보일 수 있다. 하지만 MZ세대의 이직 고민을 단순히 끈기 부족으로만 보면 행동의 배경을 놓치게 된다. MZ세대는 자신이 하는 일이 어떤 의미가 있는지, 이 일을 통해 어떤 역량을 쌓을 수 있는지, 평가 기준이 공정한지, 조직 안에서 성장할 가능성이 있는지를 중요하게 본다. 즉 오래 버티는 것 자체보다, 그 시간이 자신의 미래에 도움이 되는지 확인하려는 경향이 강하다. 따라서 이직을 고민하는 MZ를 볼 때 “왜 못 버티지?”라고만 생각하기보다 “이 직원이 이 조직에서 성장할 수 있다고 느끼는가?”, “업무가 기대와 맞는가?”, “평가와 보상 기준을 납득하고 있는가?”를 함께 봐야 한다.",
-    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.kli.re.kr/kliFileDownload?fileName=23.+%EC%9D%B4%EC%98%81%EB%A9%B4,%EA%B9%80%EC%A0%95%EC%9D%80_%EC%B5%9C%EC%A2%85.pdf"}]
+    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.mhrd.kr/bbs/board.php?bo_table=academic_paper&wr_id=34"}]
   },
   {
     category: "취업",
@@ -264,7 +264,7 @@ const KNOWLEDGE_QUIZZES = [
     ],
     answer: "자신의 노력이 어떤 결과로 인정되는지 알고 싶어 하는 공정성 요구다.",
     evidence: "기성세대는 “일단 열심히 하면 언젠가 인정받는다”는 방식에 익숙한 경우가 많다. 예전 조직문화에서는 평가 기준이 아주 명확하지 않아도, 성실하게 일하고 오래 버티는 태도 자체가 좋은 평가로 이어질 수 있었다. 그래서 MZ 직원이 처음부터 평가 기준을 묻는 모습이 “상사를 의심한다”거나 “조건부터 따진다”처럼 보일 수 있다. 하지만 MZ세대는 평가 기준이 불명확한 상황을 불공정하다고 느끼기 쉽다. 열심히 했는데도 어떤 기준으로 평가받는지 모르면, 자신의 노력이 제대로 인정받지 못할 수 있다고 생각한다. 그래서 기준을 묻는 것은 반항이나 불신이 아니라, 업무의 방향을 정확히 잡고 결과에 책임지기 위한 행동일 수 있다. 이 문제의 핵심은 MZ가 “평가받기 싫다”고 말하는 것이 아니라, “납득 가능한 기준으로 평가받고 싶다”고 말한다는 점이다.",
-    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.kli.re.kr/kliFileDownload?fileName=23.+%EC%9D%B4%EC%98%81%EB%A9%B4,%EA%B9%80%EC%A0%95%EC%9D%80_%EC%B5%9C%EC%A2%85.pdf"}]
+    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.mhrd.kr/bbs/board.php?bo_table=academic_paper&wr_id=34"}]
   },
   {
     category: "취업",
@@ -366,7 +366,7 @@ const KNOWLEDGE_QUIZZES = [
     ],
     answer: "MZ에게 취향은 단순한 소비가 아니라, 자신이 어떤 사람인지 보여 주는 자기표현 방식일 수 있다.",
     evidence: "기성세대에게는 취향을 강하게 드러내는 행동이 “튀고 싶어 한다”, “자기중심적이다”처럼 보일 수 있다. 특히 예전에는 개인의 취향보다 집단의 분위기, 조직의 규칙, 주변의 시선을 더 중요하게 여기는 문화가 강했기 때문에, MZ의 자기표현이 낯설게 느껴질 수 있다. 하지만 MZ세대에게 취향은 단순히 좋아하는 물건이나 음악을 고르는 문제가 아니다. 취향은 자신이 어떤 사람인지 보여 주는 정체성의 표현이다. 어떤 브랜드를 좋아하는지, 어떤 음악을 듣는지, 어떤 공간을 가는지, 어떤 경험을 소비하는지가 “나를 설명하는 언어”가 된다. 연구에서는 MZ세대가 집단보다 개인의 행복을 중시하고, 소유보다 공유, 상품보다 경험, 가격보다 취향을 중시하는 경향이 있다고 설명한다.",
-    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.kli.re.kr/kliFileDownload?fileName=23.+%EC%9D%B4%EC%98%81%EB%A9%B4,%EA%B9%80%EC%A0%95%EC%9D%80_%EC%B5%9C%EC%A2%85.pdf"}]
+    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.mhrd.kr/bbs/board.php?bo_table=academic_paper&wr_id=34"}]
   },
   {
     category: "문화",
@@ -378,7 +378,7 @@ const KNOWLEDGE_QUIZZES = [
     ],
     answer: "MZ에게 온라인 공간은 취향과 관심사가 비슷한 사람을 만나고 관계를 만드는 중요한 생활공간일 수 있다.",
     evidence: "기성세대에게 인간관계는 주로 학교, 직장, 동네, 가족, 친척처럼 직접 만나는 공간에서 만들어지는 것이었다. 그래서 온라인에서 만난 사람과 친해지거나, 온라인 커뮤니티에서 소속감을 느끼는 MZ의 모습이 가볍게 보일 수 있다. “직접 본 적도 없는 사람과 어떻게 그렇게 친할 수 있지?”라는 의문이 생길 수 있다. 하지만 MZ세대, 특히 Z세대는 디지털 환경에서 성장했다. 스마트폰, SNS, 유튜브, 온라인 게임, 커뮤니티는 단순한 오락 도구가 아니라 정보를 얻고, 취향을 공유하고, 관계를 맺는 생활공간이다. 연구에서도 Z세대는 스마트폰과 온라인 플랫폼을 통해 세상과 소통하며, 취향과 관심사가 같은 친구를 온라인에서 만나 공부나 게임을 함께 할 수 있다고 설명한다. 따라서 온라인 관계는 현실 관계를 대체하는 가짜 관계가 아니라, MZ에게는 현실적인 관계 방식 중 하나다.",
-    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.kli.re.kr/kliFileDownload?fileName=23.+%EC%9D%B4%EC%98%81%EB%A9%B4,%EA%B9%80%EC%A0%95%EC%9D%80_%EC%B5%9C%EC%A2%85.pdf"}]
+    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.mhrd.kr/bbs/board.php?bo_table=academic_paper&wr_id=34"}]
   },
   {
     category: "문화",
@@ -390,7 +390,7 @@ const KNOWLEDGE_QUIZZES = [
     ],
     answer: "SNS는 MZ에게 자기 가치관과 신념을 표현하고, 비슷한 생각을 가진 사람들과 연결되는 공간이다.",
     evidence: "기성세대에게 SNS는 사적인 일상 공유, 홍보, 보여주기 공간처럼 느껴질 수 있다. 그래서 MZ가 SNS에 사회문제나 가치관을 올리면 “관심받고 싶어서 저러는 것 아닌가?”라고 생각할 수 있다. 특히 공적인 문제를 온라인에 올리는 행동이 익숙하지 않은 세대에게는 그것이 가볍거나 과시적인 행동처럼 보일 수 있다. 하지만 MZ세대에게 SNS는 단순히 사진을 올리는 공간이 아니다. 자신의 생각을 표현하고, 비슷한 생각을 가진 사람들과 연결되고, 사회적 이슈에 참여하는 중요한 통로다. 연구에서도 MZ세대는 디지털 네이티브로서 SNS를 통해 가치관과 신념을 표현하며, 공정·정의·환경·윤리적 가치에 관심을 보이는 특징이 있다고 설명된다. 즉 SNS 표현은 단순한 과시나 관심 끌기가 아니라, MZ가 자신의 가치관을 드러내는 방식일 수 있다.",
-    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.kli.re.kr/kliFileDownload?fileName=23.+%EC%9D%B4%EC%98%81%EB%A9%B4,%EA%B9%80%EC%A0%95%EC%9D%80_%EC%B5%9C%EC%A2%85.pdf"}]
+    links: [{title:"이영면·김정은, 세대별 이직의사와 영향요인에 관한 연구: MZ세대와 기성세대의 비교를 중심으로 (한국노동패널 학술대회, 2021)", url:"https://www.mhrd.kr/bbs/board.php?bo_table=academic_paper&wr_id=34"}]
   }
 ];
 
@@ -1013,41 +1013,6 @@ function hideAllScreens() {
     });
 }
 
-// 결과창에서 호출 — 유형 안내 화면으로 이동 + 해당 유형 카드까지 자동 스크롤
-window.goToTypeDetail = function() {
-  const targetType=window.lastTendencyType||"A";
-  if(typeof showTendencies==="function") showTendencies();
-  else {
-    hideAllScreens();
-    document.getElementById("tendency-screen").classList.remove("hidden");
-    if(typeof renderTendencyGuide==="function") renderTendencyGuide();
-  }
-  setTimeout(()=>{
-    const card=document.querySelector(`[data-type-key="${targetType}"]`);
-    if(card){
-      const mainHeader=document.querySelector(".main-header");
-      const headerH=mainHeader?mainHeader.getBoundingClientRect().height:60;
-      const top=card.getBoundingClientRect().top+window.pageYOffset-headerH-16;
-      window.scrollTo({top, behavior:"smooth"});
-    } else {
-      window.scrollTo({top:0, behavior:"smooth"});
-    }
-  }, 300);
-};
-
-// 결과창에서 호출 — 연구 배경 화면으로 이동
-window.goToResearch = function() {
-  if(typeof showResearch==="function") showResearch();
-  else {
-    hideAllScreens();
-    document.getElementById("research-screen").classList.remove("hidden");
-    if(typeof renderResearchData==="function") renderResearchData();
-    window.scrollTo({top:0, behavior:"smooth"});
-  }
-};
-
-
-
 window.startTendencyTest = function() {
   currentMode="tendency"; currentIdx=0; scores={A:0,B:0,C:0,D:0};
   currentList=shuffle(TENDENCY_QUIZZES);
@@ -1145,21 +1110,9 @@ function showTendencyResult() {
   let maxScore=0,resultType="A";
   for(const [t,s] of Object.entries(scores)){if(s>maxScore){maxScore=s;resultType=t;}}
   const res=TYPES[resultType];
-  window.lastTendencyType=resultType;
   document.getElementById("character-icon").innerHTML=`<span class="material-symbols-rounded" style="color:${res.color};font-size:inherit;">${res.icon}</span>`;
   document.getElementById("character-name").innerText=res.name;
   document.getElementById("character-desc").innerText=res.resultDesc;
-
-  // 결과창 보강: 모토 + 강점 미리보기 2개
-  const extraEl=document.getElementById("tendency-result-extra");
-  if(extraEl){
-    const motto=res.motto?`<div class="result-motto" style="color:${res.color};"><span class="material-symbols-rounded">format_quote</span><span>${escapeHtml(res.motto)}</span></div>`:"";
-    const previews=(res.strengths||[]).slice(0,2).map(s=>
-      `<div class="result-preview-item"><strong>${escapeHtml(s.title||"")}</strong><p>${escapeHtml(s.desc||"")}</p></div>`
-    ).join("");
-    extraEl.innerHTML=motto+(previews?`<div class="result-preview-grid">${previews}</div>`:"");
-  }
-
   if(tendencyChartInstance)tendencyChartInstance.destroy();
   tendencyChartInstance=new Chart(document.getElementById("tendencyChart").getContext("2d"),{
     type:"radar",
@@ -1184,29 +1137,6 @@ function showKnowledgeResult() {
   else if(knowledgeScore>=1)ev="좋습니다. 서로의 다름을 알아가려는 열린 시각을 가지고 계시네요.";
   else ev="이제부터 알아가면 됩니다. 세대 간의 생각 차이를 이해하는 첫걸음을 떼셨습니다.";
   document.getElementById("knowledge-eval-text").innerText=ev;
-
-  // 결과창 보강: 카테고리별 강점·약점 미리보기
-  const extraEl=document.getElementById("knowledge-result-extra");
-  if(extraEl){
-    const cats=Object.keys(categoryStats);
-    if(cats.length>0){
-      const sortedCats=cats.map(c=>({name:c,score:categoryStats[c]})).sort((a,b)=>b.score-a.score);
-      const best=sortedCats[0];
-      const worst=sortedCats[sortedCats.length-1];
-      let msg="";
-      if(best && worst && best.name!==worst.name && best.score>worst.score){
-        msg=`<div class="result-preview-grid">
-          <div class="result-preview-item"><strong>💪 가장 잘 이해한 영역</strong><p>${escapeHtml(best.name)} (${best.score}점)</p></div>
-          <div class="result-preview-item"><strong>📚 더 살펴볼 영역</strong><p>${escapeHtml(worst.name)} (${worst.score}점)</p></div>
-        </div>`;
-      } else if(best){
-        msg=`<div class="result-preview-item" style="text-align:center;"><strong>📊 카테고리별 정답 균형</strong><p>모든 영역에 고르게 답변하셨네요.</p></div>`;
-      }
-      extraEl.innerHTML=msg;
-    } else {
-      extraEl.innerHTML="";
-    }
-  }
   if(knowledgeChartInstance)knowledgeChartInstance.destroy();
   knowledgeChartInstance=new Chart(document.getElementById("knowledgeChart").getContext("2d"),{
     type:"bar",
@@ -1277,4 +1207,4 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   // Firebase: 방명록만 연결
   onValue(commentsRef,snap=>renderComments(snap.val()));
-}); 
+});
