@@ -885,3 +885,201 @@ main.container:has(#tendency-screen:not(.hidden)) {
   color: var(--text-sub);
   word-break: keep-all;
 }
+/* ════════════════════════════════════════════
+   유형 보기 — 캐러셀 (모바일) / 세로 (데스크탑)
+════════════════════════════════════════════ */
+.type-carousel-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+.type-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: visible;
+}
+.type-carousel .type-detail-card {
+  margin-bottom: 0;
+}
+
+/* 페이지 인디케이터 — 데스크탑에서는 숨김 */
+.type-dots {
+  display: none;
+}
+/* 좌우 화살표 — 데스크탑에서 숨김 */
+.type-nav-btn {
+  display: none;
+}
+
+/* ── 모바일: 캐러셀 모드 ── */
+@media (max-width: 720px) {
+  .type-carousel {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0;
+    /* 컨테이너 좌우 패딩 무시하고 풀폭 */
+    margin: 0 -16px;
+    padding: 4px 16px 8px;
+    scroll-padding-left: 16px;
+  }
+  .type-carousel::-webkit-scrollbar { display: none; }
+
+  .type-carousel .type-detail-card {
+    flex: 0 0 calc(100% - 8px);
+    scroll-snap-align: start;
+    margin-right: 12px;
+    /* 모바일 패딩 줄이기 */
+    padding: 22px 18px;
+  }
+  .type-carousel .type-detail-card:last-child {
+    margin-right: 0;
+  }
+
+  /* 모바일에서 박스 그리드는 1열 */
+  .type-carousel .type-box-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 인디케이터 표시 */
+  .type-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+  }
+  .type-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-sub);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .type-dot.active {
+    background: var(--type-color);
+    border-color: var(--type-color);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  /* 카드 헤더 모바일 조정 */
+  .type-carousel .type-detail-icon {
+    font-size: 2.4rem !important;
+    width: 56px;
+    height: 56px;
+    padding: 10px;
+  }
+  .type-carousel .type-detail-name {
+    font-size: 1.3rem;
+  }
+  .type-carousel .type-motto {
+    font-size: 0.88rem;
+  }
+}
+
+/* 데스크탑(720px↑): 좌우 버튼 표시는 선택 — 일단 숨김 유지 */
+
+/* ════════════════════════════════════════════
+   연구 배경 — 상단 점프 메뉴
+════════════════════════════════════════════ */
+.research-jump-nav {
+  position: sticky;
+  top: 60px; /* 헤더 높이 */
+  z-index: 50;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px 0;
+  margin: 0 -16px 18px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-soft);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.research-jump-nav::-webkit-scrollbar { display: none; }
+
+.research-jump-chip {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.research-jump-chip:hover {
+  border-color: var(--primary-light);
+  color: var(--primary);
+}
+.research-jump-chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+/* 연구 카드 컨테이너에 약간의 여백 */
+.research-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* 점프 스크롤 시 카드가 sticky nav 뒤로 가는 것 방지 */
+  scroll-margin-top: 130px;
+}
+.research-card {
+  scroll-margin-top: 130px;
+}
+
+/* 모바일에서 nav 텍스트 약간 작게 + 카드 패딩 줄이기 */
+@media (max-width: 720px) {
+  .research-jump-chip {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+  }
+  #research-screen .research-card {
+    padding: 22px 18px;
+  }
+  #research-screen .research-card-title {
+    font-size: 1.1rem;
+  }
+  #research-screen .research-card-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+  /* 박스 그리드 1열 (모바일) */
+  #research-screen .research-boxes {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+  #research-screen .research-stat {
+    padding: 12px 16px;
+    min-width: 90px;
+  }
+  #research-screen .research-stat-num {
+    font-size: 1.5rem;
+  }
+}
