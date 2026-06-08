@@ -1230,6 +1230,7 @@ main.container:has(#tendency-screen:not(.hidden)) {
     font-size: 0.82rem;
     padding: 10px 12px;
   }
+<<<<<<< HEAD
 }
 
 /* ════════════════════════════════════════════
@@ -1314,4 +1315,6 @@ main.container:has(#tendency-screen:not(.hidden)) {
     padding: 10px 12px;
     font-size: 0.82rem;
   }
+=======
+>>>>>>> 46f2f8fdd3821f8ea3d866e964364ed70ef11ced
 }
