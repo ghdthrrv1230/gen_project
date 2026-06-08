@@ -35,7 +35,8 @@ const TYPES = {
     color: "#f59e0b",
     motto: "함께 가야 멀리 갑니다",
     resultDesc: "조직과 화합을 중요시하는 당신, 공동체 내의 갈등을 중재하는 훌륭한 균형자입니다.",
-    guideDesc: "조직의 목표, 역할의 책임, 그리고 관계의 안정을 최우선으로 여깁니다. 개인보다 공동체의 헌신과 유대감을 중요하게 생각합니다. 어려운 일이 생기면 \"우리가 함께 해결해야 한다\"고 자연스럽게 생각하는 유형입니다.",
+    guideDesc: "갈등 상황에서 개인의 감정이나 즉각적 불편보다, 맡은 역할·책임·질서·공동체의 안정을 먼저 보는 경향이 강합니다. 이들에게 중요한 것은 단순히 남을 배려하는 것이 아니라, \"공동체가 유지되기 위해 필요한 원칙과 역할이 무엇인가\"입니다. \"내가 하고 싶은가\"보다 \"지금 이 자리에서 해야 하는가\"를 먼저 묻는 유형입니다. 규칙을 맹목적으로 따르는 사람이라기보다, 공동체가 제대로 작동하려면 일정한 역할과 원칙이 필요하다고 믿는 쪽입니다.",
+    theory: "Thomas-Kilmann 갈등처리 모형에서 협조성(cooperativeness)이 높고, Colquitt 조직공정성 연구에서 절차적 정당성(procedural justice)을 중시하는 경향에 가깝습니다.",
     strengths: [
       { title: "🤝 강한 책임감", desc: "주어진 역할과 약속을 끝까지 지키며, 팀의 안정에 기여합니다." },
       { title: "🌉 갈등 중재 능력", desc: "양쪽의 입장을 모두 헤아리려는 자세로, 조직 내 다리 역할을 잘 합니다." },
@@ -60,7 +61,8 @@ const TYPES = {
     color: "#3b82f6",
     motto: "기준이 있어야 신뢰가 생깁니다",
     resultDesc: "논리와 규칙을 신뢰하는 당신, 누구도 억울하지 않도록 명확한 기준을 세우는 데 탁월합니다.",
-    guideDesc: "명확한 기준, 논리적인 설명, 납득 가능한 절차를 중시합니다. 투명한 정보 공개와 정당한 보상이 주어져야 움직입니다. \"왜 이렇게 해야 하는지\"가 설명되지 않으면 답답해하는 유형입니다.",
+    guideDesc: "갈등 상황에서 개인의 권리, 납득 가능한 기준, 설명 가능한 절차를 먼저 봅니다. 단순히 손해 보지 않는 것이 아니라, \"왜 이런 결정이 내려졌는지, 어떤 기준이 적용되었는지, 그 기준이 모두에게 공정하게 적용되는지\"가 더 중요합니다. 그래서 애매한 관행, 설명 없는 요구, 불투명한 기회 배분 같은 상황에 특히 민감합니다. 계산적이어서가 아니라, 일관된 규칙과 설명 가능한 절차가 신뢰의 최소 조건이라고 보기 때문입니다.",
+    theory: "Thomas-Kilmann 갈등처리 모형에서 자기 주장성(assertiveness)이 높고, Colquitt 조직공정성 연구에서 절차적 정당성(procedural justice)을 중시하는 경향에 가깝습니다.",
     strengths: [
       { title: "🎯 합리적 판단력", desc: "감정에 휘둘리지 않고 객관적 사실과 데이터에 근거해 판단합니다." },
       { title: "📋 투명한 의사결정", desc: "모두가 납득할 수 있는 기준을 만들어, 공정한 환경을 조성합니다." },
@@ -85,7 +87,8 @@ const TYPES = {
     color: "#10b981",
     motto: "내 삶의 선은 내가 긋습니다",
     resultDesc: "독립성과 개인의 경계를 존중하는 당신, 비효율적인 관습을 거부하고 스스로의 삶을 지킵니다.",
-    guideDesc: "개인의 시간과 선택권을 존중받길 원합니다. 독립성을 중시하며, 일과 삶의 경계(공사 구분)가 명확한 것을 선호합니다. \"이건 내 영역이고, 저건 회사의 영역이다\"라는 구분이 분명한 유형입니다.",
+    guideDesc: "갈등 상황에서 개인의 선택권, 자기 방식, 사적 경계를 중요하게 여기면서도, 그것이 \"존중받는 방식으로 다뤄지는가\"를 함께 봅니다. \"내가 무엇을 선택할 수 있는가\"뿐 아니라, \"그 선택권이 관계 안에서 얼마나 존중되고 있는가\"가 중요합니다. 어떤 요구가 내용상 타당해도, 말하는 방식이 압박적이면 더 불편하게 받아들일 수 있습니다. 무조건 개인주의적이라기보다, 개인의 삶과 선택을 관계 안에서도 존중받아야 하는 가치로 보는 쪽입니다.",
+    theory: "Thomas-Kilmann 갈등처리 모형에서 자기 주장성(assertiveness)이 높고, Colquitt 조직공정성 연구에서 상호작용 공정성(interactional justice)을 중시하는 경향에 가깝습니다.",
     strengths: [
       { title: "🛡️ 명확한 자기 경계", desc: "삶의 우선순위가 분명하고, 자신을 지킬 줄 압니다." },
       { title: "🎨 독립적 사고", desc: "주변 분위기에 휩쓸리지 않고, 자기 판단으로 결정합니다." },
@@ -110,7 +113,8 @@ const TYPES = {
     color: "#ec4899",
     motto: "어떻게 말하느냐가 무엇을 말하느냐만큼 중요합니다",
     resultDesc: "마음의 연결을 중시하는 당신, 결과만큼이나 소통하는 방식과 과정에서의 배려를 중요하게 여깁니다.",
-    guideDesc: "감정이 상하지 않는 상호 존중과 말하는 방식을 가장 중요하게 봅니다. 권위적인 태도보다는 솔직하고 부드러운 대화를 원합니다. \"무엇을 했느냐\"보다 \"어떻게 대했느냐\"에 마음이 더 가는 유형입니다.",
+    guideDesc: "공동체와 관계를 중요하게 보지만, 특히 \"관계를 덜 해치는 방식, 감정의 상처를 줄이는 방식, 분위기와 조화\"를 더 먼저 봅니다. \"누가 맞는가\"보다 \"이 문제가 관계를 깨지 않고 해결될 수 있는가\"가 중요합니다. 같은 지적도 내용의 정확성만큼이나 말하는 방식과 정서적 충격을 중요하게 여깁니다. 갈등을 무조건 피하려는 것이 아니라, 관계를 완전히 무너뜨리지 않는 방식으로 다루려는 경향이 강한 유형입니다.",
+    theory: "Thomas-Kilmann 갈등처리 모형에서 협조성(cooperativeness)이 높고, Colquitt 조직공정성 연구에서 상호작용 공정성(interactional justice)을 중시하는 경향에 가깝습니다.",
     strengths: [
       { title: "💞 공감 능력", desc: "상대의 감정을 빠르게 읽고, 정서적 안정감을 만들어냅니다." },
       { title: "🌸 부드러운 대화", desc: "공격적이지 않은 표현으로, 팀 내 긴장을 완화하는 역할을 합니다." },
@@ -311,9 +315,10 @@ const RESEARCH_ITEMS = [
       { num: "3위", label: "한국 사회 주요 갈등 순위" }
     ],
     sources: [
-      { title: "한국행정연구원, 2024년 사회통합실태조사", url: "https://www.kipa.re.kr" },
-      { title: "한국리서치, 2026 세대인식조사", url: "https://hrcopinion.co.kr/archives/35659" },
-      { title: "강수진·김주경, 세대 간 갈등 인식에 영향을 미치는 요인 분석", url: "https://oak.jejunu.ac.kr/handle/2020.oak/24538" }
+      { title: "한국행정연구원, 2024년 사회통합실태조사 보고서", url: "https://sky.kipa.re.kr/$/10130/contents/7147339" },
+      { title: "한국리서치, 2026 세대인식조사 — 세대갈등 현황", url: "https://hrcopinion.co.kr/archives/35659" },
+      { title: "강수진·김주경, 세대 간 갈등 인식에 영향을 미치는 요인 분석 (제주대 학위논문)", url: "https://oak.jejunu.ac.kr/handle/2020.oak/24538" },
+      { title: "손병권·박경미·유성진·정한울, 세대갈등의 원인 분석 (분쟁해결연구, 2019)", url: "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002495193" }
     ]
   },
 
@@ -579,6 +584,83 @@ const RESEARCH_ITEMS = [
       { title: "본 프로젝트 종합 분석", url: "https://scholar.google.com/scholar?q=%EB%B3%B8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%A2%85%ED%95%A9%20%EB%B6%84%EC%84%9D" },
       { title: "세대 소통 가치관 관련 종합 연구 검토", url: "https://www.google.com/search?q=%EC%84%B8%EB%8C%80%20%EC%86%8C%ED%86%B5%20%EC%84%B1%ED%96%A5%20%EA%B0%80%EC%B9%98%EA%B4%80%20%ED%95%9C%EA%B5%AD%EA%B0%88%EB%93%B1%ED%95%99%ED%9A%8C" }
     ]
+  },
+
+  // ═══ 11. 4유형의 이론적 배경 ═══
+  {
+    title: "4유형은 어디서 왔을까 — 이론적 배경",
+    desc: "본 프로젝트의 4가지 유형은 단순히 직관으로 만든 것이 아닙니다. 두 가지 학술 모델을 결합해서 설계되었습니다. 첫째는 Thomas-Kilmann의 갈등처리 모형, 둘째는 Colquitt의 조직공정성 연구입니다. 이 두 모형은 각각 다른 측면에서 갈등 상황의 반응 방식을 설명하는데, 본 프로젝트는 두 축을 결합해 한국 사회의 세대 소통 맥락에 맞춘 분류 틀을 만들었습니다.",
+    tags: ["이론적 배경", "모델", "분류 기준"],
+    boxes: [
+      { title: "🔬 축 1: Thomas-Kilmann 갈등처리 모형", desc: "Kenneth Thomas와 Ralph Kilmann이 1970년대 초 개발한 모형. 갈등 상황의 반응을 두 차원으로 설명합니다 — \"자기 주장성(assertiveness, 내 요구를 얼마나 강하게 고려하는가)\"과 \"협조성(cooperativeness, 타인/집단의 요구를 얼마나 고려하는가)\". 본 프로젝트는 이 모형에서 \"자기 입장과 타인/집단 고려를 분리해 볼 수 있다\"는 점에 주목해, 첫 번째 축으로 활용했습니다." },
+      { title: "⚖️ 축 2: Colquitt 조직공정성 연구", desc: "Jason Colquitt는 공정성을 한 덩어리가 아닌 여러 차원으로 나눠 분석했습니다. 본 프로젝트는 그중 \"절차 공정성(procedural justice, 기준과 절차의 정당성)\"과 \"상호작용 공정성(interactional justice, 존중받는 대우의 공정성)\"에 주목해, 두 번째 축으로 활용했습니다." },
+      { title: "🎯 축의 결합 → 4유형", desc: "두 축을 결합하면 4분면이 만들어집니다. ①공동체 중심 + 원칙·기준 중심 → 책임·조화형(A) ②개인 중심 + 원칙·기준 중심 → 공정·절차형(B) ③개인 중심 + 관계·상호작용 중심 → 자율·경계형(C) ④공동체 중심 + 관계·상호작용 중심 → 관계·소통형(D)" },
+      { title: "📐 같은 상황, 다른 해석", desc: "같은 갈등 상황에서도 \"기준이 공정한가, 절차가 납득 가능한가, 설명이 충분한가\"를 먼저 보는 사람과 \"말하는 방식이 존중적인가, 관계를 해치지 않는가\"를 먼저 보는 사람은 완전히 다른 결론에 이를 수 있습니다. 본 프로젝트는 이 차이를 드러내는 것이 목적입니다." },
+      { title: "⚠️ 한계와 안내", desc: "이 테스트는 사용자를 고정된 성격유형으로 진단하려는 검사가 아닙니다. 갈등 상황에서 무엇을 먼저 중요하게 보고, 무엇을 정당한 기준으로 판단하는지가 상대적으로 어떻게 나타나는지 보여주는 탐색적 결과입니다." }
+    ],
+    stats: [
+      { num: "2개", label: "이론적 축" },
+      { num: "4개", label: "결합된 유형" }
+    ],
+    svg: `<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;margin:14px auto 0;display:block;">
+      <text x="200" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">두 축으로 본 4유형</text>
+      <line x1="200" y1="50" x2="200" y2="280" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="50" y1="165" x2="350" y2="165" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="200" y="45" text-anchor="middle" font-size="10" fill="#64748b">공동체 중심</text>
+      <text x="200" y="298" text-anchor="middle" font-size="10" fill="#64748b">개인 중심</text>
+      <text x="48" y="168" text-anchor="end" font-size="10" fill="#64748b">관계 중심</text>
+      <text x="352" y="168" text-anchor="start" font-size="10" fill="#64748b">원칙 중심</text>
+      <rect x="215" y="65" width="125" height="85" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="10"/>
+      <text x="277" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">A</text>
+      <text x="277" y="118" text-anchor="middle" font-size="10" fill="#92400e">책임·조화</text>
+      <text x="277" y="135" text-anchor="middle" font-size="9" fill="#92400e">공동체+원칙</text>
+      <rect x="60" y="65" width="125" height="85" fill="#fce7f3" stroke="#ec4899" stroke-width="2" rx="10"/>
+      <text x="122" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#9f1239">D</text>
+      <text x="122" y="118" text-anchor="middle" font-size="10" fill="#9f1239">관계·소통</text>
+      <text x="122" y="135" text-anchor="middle" font-size="9" fill="#9f1239">공동체+관계</text>
+      <rect x="215" y="180" width="125" height="85" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="10"/>
+      <text x="277" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">B</text>
+      <text x="277" y="233" text-anchor="middle" font-size="10" fill="#1e40af">공정·절차</text>
+      <text x="277" y="250" text-anchor="middle" font-size="9" fill="#1e40af">개인+원칙</text>
+      <rect x="60" y="180" width="125" height="85" fill="#d1fae5" stroke="#10b981" stroke-width="2" rx="10"/>
+      <text x="122" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">C</text>
+      <text x="122" y="233" text-anchor="middle" font-size="10" fill="#065f46">자율·경계</text>
+      <text x="122" y="250" text-anchor="middle" font-size="9" fill="#065f46">개인+관계</text>
+    </svg>`,
+    sources: [
+      { title: "Thomas, K.W. & Kilmann, R.H., Thomas-Kilmann Conflict Mode Instrument (TKI, 1974)", url: "https://kilmanndiagnostics.com/overview-thomas-kilmann-conflict-mode-instrument-tki/" },
+      { title: "Colquitt, J.A. (2001), On the Dimensionality of Organizational Justice", url: "https://scholar.google.com/scholar?q=Colquitt+2001+organizational+justice+dimensionality" },
+      { title: "이인석, Thomas-Kilmann의 갈등관리기법(MODE)의 타당성 검증 (산업관계연구, 1997)", url: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE01455892" },
+      { title: "Colquitt et al. (2013), Organizational Justice: A Review", url: "https://goal-lab.psych.umn.edu/orgpsych/readings/6.%20Organizational%20Justice/Colquitt%20(2012)%20Organizational%20Justice.pdf" }
+    ]
+  },
+
+  // ═══ 12. 유형과 세대의 연결 — 왜 어떤 유형은 어떤 세대와 더 잘 연결될까 ═══
+  {
+    title: "유형과 세대의 연결 — 왜 어떤 유형은 어떤 세대와 더 잘 연결될까",
+    desc: "4가지 유형은 특정 세대를 \"판정\"하는 도구가 아닙니다. 다만 각 세대가 살아온 사회적 조건이 어떤 해석 경향을 더 강화할 수 있는지 설명하는 틀로 볼 수 있습니다. 한국 가족가치관 연구와 청년 노동시장 연구는 세대 간 차이가 \"완전한 단절\"이 아니라 \"중첩과 혼합의 형태\"로 나타난다고 지적합니다. 그러나 일정한 경향성은 분명히 존재합니다.",
+    tags: ["세대 연결", "사회적 맥락", "해석"],
+    boxes: [
+      { title: "🏛️ 책임·조화형 ↔ 기성세대", desc: "한국의 기성세대, 특히 산업화·고도성장기의 조직문화를 경험한 세대는 개인의 자유보다 역할 수행, 인내, 조직 적응, 가족 부양 책임을 중요한 가치로 배워왔습니다. 빠른 근대화와 압축 성장 속에서 가족과 조직은 생존의 핵심 단위였고, 개인은 자신의 욕구를 조정하며 공동체를 유지하는 것을 미덕이자 현실 전략으로 내면화했습니다. 김혜영의 연구도 \"산업화세대 장년층이 가장 보수적이며 정보화세대가 가장 개방적\"이라고 분석합니다." },
+      { title: "🌸 관계·소통형 ↔ 기성세대", desc: "한국 사회의 전통적 가족주의와 위계적 조직문화에서는 갈등을 직접 드러내기보다 \"관계를 조정하고 체면을 관리하는 것\"이 중요했습니다. 기성세대에게 \"말을 맞게 하는 것\"만큼 \"사람을 상하지 않게 하는 것\", \"분위기를 깨지 않는 것\"이 중요한 이유입니다. 책임·조화형이 역할로 공동체를 지키려 한다면, 관계·소통형은 관계와 정서적 안정으로 공동체를 지키려는 쪽입니다." },
+      { title: "⚖️ 공정·절차형 ↔ 청년세대", desc: "한국노동연구원 자료는 청년층이 단순한 안정만이 아니라 \"공정한 조건과 일자리의 질\"을 중요하게 본다고 보여줍니다. OECD도 한국 청년층이 고용·주거 불확실성을 크게 경험하며, 경제·사회적 위험을 더 강하게 인식한다고 보고합니다. 이런 조건에서는 \"열심히 하면 보상받는다\"는 막연한 믿음보다, \"최소한 기준이 투명하고 절차가 납득 가능해야 한다\"는 감각이 강해집니다." },
+      { title: "🛡️ 자율·경계형 ↔ 청년세대", desc: "2024년 가족가치관 연구는 청년세대가 전반적으로 더 탈전통적 경향을 보인다고 분석합니다. 청년은 가족과 공동체를 부정하지는 않지만, 그 안에서도 \"개인의 삶의 계획, 독립성, 관계 안에서의 상호존중\"을 더 중요한 기준으로 배웠습니다. 또한 청년층은 주거·취업·결혼 비용이 크게 높아진 환경에서 살고 있어, 가족이나 조직이 \"당연히 해야 한다\"고 말하는 요구가 \"내 삶의 통제권을 약화시키는 압박\"으로 들릴 수 있습니다." },
+      { title: "🌉 세대를 단정하지 않는 이유", desc: "이 연결은 \"기성세대는 무조건 A, 청년세대는 무조건 B\"라는 분류가 아닙니다. 연령효과, 코호트효과, 계층효과가 섞여 있기 때문입니다. 한국 가족가치관 연구도 \"청년세대가 전반적으로 더 탈전통적이지만, 모든 영역에서 기성세대와 완전히 갈라지지는 않으며 계층 차이도 함께 봐야 한다\"고 지적합니다." },
+      { title: "💡 핵심 메시지", desc: "기성세대는 역할·공동체·관계 유지의 가치를 더 강하게 배운 환경에서 살아왔고, 청년세대는 공정한 기준·개인 선택권·관계 안에서의 존중을 더 강하게 요구하게 된 환경에서 성장했습니다. 그래서 같은 상황도 각 세대는 서로 다른 정당성 기준으로 해석할 수 있습니다." }
+    ],
+    stats: [
+      { num: "기성", label: "↔ 책임·조화 / 관계·소통" },
+      { num: "청년", label: "↔ 공정·절차 / 자율·경계" }
+    ],
+    sources: [
+      { title: "김혜영, 가족의식의 세대적 특성 (가족과 문화, 2005)", url: "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART001143680" },
+      { title: "손병권·박경미·유성진·정한울, 세대갈등의 원인 분석: 세대계층론을 중심으로 (분쟁해결연구, 2019)", url: "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002495193" },
+      { title: "오현경, 한국의 가족 가치관에 영향을 미치는 요인 (2023)", url: "https://scholar.google.com/scholar?q=%EC%98%A4%ED%98%84%EA%B2%BD+%ED%95%9C%EA%B5%AD+%EA%B0%80%EC%A1%B1+%EA%B0%80%EC%B9%98%EA%B4%80+%EC%98%81%ED%96%A5+%EC%9A%94%EC%9D%B8" },
+      { title: "문영주·이주연·이청아, 좋은 일자리 가치관에 대한 패널 분석: 세대효과와 연령효과", url: "https://scholar.google.com/scholar?q=%EC%A2%8B%EC%9D%80+%EC%9D%BC%EC%9E%90%EB%A6%AC+%EA%B0%80%EC%B9%98%EA%B4%80+%ED%8C%A8%EB%84%90+%EB%B6%84%EC%84%9D+%EC%84%B8%EB%8C%80%ED%9A%A8%EA%B3%BC+%EC%97%B0%EB%A0%B9%ED%9A%A8%EA%B3%BC" },
+      { title: "김세움, 청년 일자리 변화 예측 연구: 기업 인사관리 및 청년층 의식 변화 (한국노동연구원, 2021)", url: "https://scholar.google.com/scholar?q=%EA%B9%80%EC%84%B8%EC%9B%80+%EC%B2%AD%EB%85%84+%EC%9D%BC%EC%9E%90%EB%A6%AC+%EB%B3%80%ED%99%94+%EC%98%88%EC%B8%A1+%ED%95%9C%EA%B5%AD%EB%85%B8%EB%8F%99%EC%97%B0%EA%B5%AC%EC%9B%90" },
+      { title: "OECD, Youth Policy Toolkit — 청년 노동시장 보고서", url: "https://www.oecd.org/employment/youth/" },
+      { title: "OECD, Economic Surveys: Korea 2024 — 청년 주거·고용 분석", url: "https://www.oecd.org/economy/korea-economic-snapshot/" }
+    ]
   }
 ];
 
@@ -647,6 +729,7 @@ function renderTendencyGuide() {
         </div>
       </div>
       <p class="type-detail-desc">${escapeHtml(t.guideDesc)}</p>
+      ${t.theory?`<div class="type-theory"><span class="material-symbols-rounded" style="font-size:1.05rem;color:${t.color};">school</span><span>${escapeHtml(t.theory)}</span></div>`:""}
       ${strengths?`<div class="type-section"><h4 class="type-section-title"><span class="material-symbols-rounded">star</span> 이런 강점이 있어요</h4><div class="type-box-grid">${strengths}</div></div>`:""}
       ${cautions?`<div class="type-section"><h4 class="type-section-title"><span class="material-symbols-rounded">priority_high</span> 이런 점은 주의해요</h4><div class="type-box-grid">${cautions}</div></div>`:""}
       ${behaviors?`<div class="type-section"><h4 class="type-section-title"><span class="material-symbols-rounded">checklist</span> 대표적인 반응</h4>${behaviors}</div>`:""}
@@ -731,38 +814,71 @@ function renderResearch() {
   // 점프 동작
   const navEl=document.getElementById("research-jump-nav");
   const chips=navEl.querySelectorAll(".research-jump-chip");
+
+  // 활성 칩이 nav의 가시 영역 밖에 있으면 가로 스크롤로 보이게 함
+  function ensureChipVisible(chip){
+    if(!chip||!navEl) return;
+    const navRect=navEl.getBoundingClientRect();
+    const chipRect=chip.getBoundingClientRect();
+    const padding=20;
+    if(chipRect.right > navRect.right - padding){
+      // 오른쪽으로 벗어남 → 오른쪽 끝에 보이게
+      navEl.scrollTo({
+        left: navEl.scrollLeft + (chipRect.right - navRect.right) + padding,
+        behavior:"smooth"
+      });
+    } else if(chipRect.left < navRect.left + padding){
+      // 왼쪽으로 벗어남 → 왼쪽 끝에 보이게
+      navEl.scrollTo({
+        left: navEl.scrollLeft - (navRect.left - chipRect.left) - padding,
+        behavior:"smooth"
+      });
+    }
+  }
+
   chips.forEach(chip=>{
     chip.addEventListener("click", ()=>{
       const target=document.getElementById(chip.dataset.target);
       if(!target)return;
-      // 헤더 높이 고려해 스크롤
-      const headerOffset=80;
+      // 헤더와 점프 nav 높이를 실시간으로 측정해서 정확한 오프셋 계산
+      const mainHeader=document.querySelector(".main-header");
+      const headerH=mainHeader?mainHeader.getBoundingClientRect().height:60;
+      const navH=navEl?navEl.getBoundingClientRect().height:0;
+      const headerOffset=headerH+navH+16;
       const top=target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
       window.scrollTo({top, behavior:"smooth"});
-      // 활성 표시
       chips.forEach(c=>c.classList.remove("active"));
       chip.classList.add("active");
+      ensureChipVisible(chip);
     });
   });
-  // 첫 칩 활성
   if(chips[0]) chips[0].classList.add("active");
 
   // 스크롤 위치에 따라 활성 칩 자동 갱신
   const cardEls=el.querySelectorAll(".research-card");
   let scrollTicking=false;
+  let currentActiveIdx=0;
   window.addEventListener("scroll", ()=>{
     if(scrollTicking)return;
     scrollTicking=true;
     requestAnimationFrame(()=>{
       const screen=document.getElementById("research-screen");
       if(screen && !screen.classList.contains("hidden")){
-        const mid=window.innerHeight/2;
+        // 화면 중간이 아닌, nav 바로 아래 지점에서 판정 → 더 자연스러운 활성 전환
+        const mainHeader=document.querySelector(".main-header");
+        const headerH=mainHeader?mainHeader.getBoundingClientRect().height:60;
+        const navH=navEl?navEl.getBoundingClientRect().height:0;
+        const triggerLine=headerH+navH+40;
         let activeIdx=0;
         cardEls.forEach((card,i)=>{
           const rect=card.getBoundingClientRect();
-          if(rect.top <= mid) activeIdx=i;
+          if(rect.top <= triggerLine) activeIdx=i;
         });
-        chips.forEach((c,i)=>c.classList.toggle("active", i===activeIdx));
+        if(activeIdx !== currentActiveIdx){
+          chips.forEach((c,i)=>c.classList.toggle("active", i===activeIdx));
+          ensureChipVisible(chips[activeIdx]);
+          currentActiveIdx=activeIdx;
+        }
       }
       scrollTicking=false;
     });
