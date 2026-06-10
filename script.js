@@ -769,6 +769,7 @@ let currentMode  = "";
 let currentIdx   = 0;
 let currentList  = [];
 let scores       = { A:0, B:0, C:0, D:0 };
+let lastResultType = "A"; // 현재 사용자의 유형 저장
 let knowledgeScore = 0;
 let categoryStats  = {};
 let tendencyChartInstance  = null;
@@ -793,17 +794,41 @@ function shuffle(arr) {
 
 // ── 화면 전환 ──────────────────────────────────────────────
 window.goHome = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   ["quiz-screen","explanation-screen","result-screen","knowledge-result-screen",
    "tendency-screen","research-screen","admin-screen"]
     .forEach(id=>document.getElementById(id).classList.add("hidden"));
   document.getElementById("start-screen").classList.remove("hidden");
 };
 window.showTendencies = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   document.getElementById("start-screen").classList.add("hidden");
   document.getElementById("tendency-screen").classList.remove("hidden");
 };
 window.showResearch = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   document.getElementById("start-screen").classList.add("hidden");
+  document.getElementById("research-screen").classList.remove("hidden");
+};
+window.goToTypeDetail = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById("result-screen").classList.add("hidden");
+  document.getElementById("tendency-screen").classList.remove("hidden");
+  
+  // 자신의 유형으로 스크롤 이동
+  setTimeout(() => {
+    const typeMap = { A: 0, B: 1, C: 2, D: 3 };
+    const targetIdx = typeMap[lastResultType] || 0;
+    const carousel = document.getElementById("type-carousel");
+    if(carousel) {
+      const w = carousel.clientWidth;
+      carousel.scrollTo({ left: w * targetIdx, behavior: "smooth" });
+    }
+  }, 200);
+};
+window.goToResearch = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById("knowledge-result-screen").classList.add("hidden");
   document.getElementById("research-screen").classList.remove("hidden");
 };
 
@@ -1109,6 +1134,7 @@ function showTendencyResult() {
   document.getElementById("result-screen").classList.remove("hidden");
   let maxScore=0,resultType="A";
   for(const [t,s] of Object.entries(scores)){if(s>maxScore){maxScore=s;resultType=t;}}
+  lastResultType = resultType; // 현재 유형 저장
   const res=TYPES[resultType];
   document.getElementById("character-icon").innerHTML=`<span class="material-symbols-rounded" style="color:${res.color};font-size:inherit;">${res.icon}</span>`;
   document.getElementById("character-name").innerText=res.name;
